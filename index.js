@@ -1,12 +1,14 @@
 import startReadline from './src/readline.js';
 import { textGreeting, textCurrentDir } from "./src/text.js";
 import { getUserName } from "./src/user.js";
-import currentDir from './src/currentdir.js';
+import {updateCurrentDir} from './src/currentdir.js';
 const userName = getUserName()
+
+const updatedDit = await updateCurrentDir()
 
 const startApp = async () => {
    textGreeting(userName)
-   textCurrentDir(currentDir)
+   textCurrentDir(updatedDit)
    await startReadline();
   }
 

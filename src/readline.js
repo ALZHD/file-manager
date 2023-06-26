@@ -5,10 +5,8 @@ import { getUserName } from './user.js';
 import { textReadLine, textInvalidImpit, textExit } from './text.js';
 
 const userName = getUserName();
+import handlerLogic from './handlerLogic.js'
 
-const handleCommand = async (command) => {
-  // Здесь можно добавить обработку команд
-};
 
 const startReadline = async () => {
   textReadLine(userName);
@@ -21,7 +19,7 @@ const startReadline = async () => {
       rl.close();
     } else if (input.length > 0) {
       console.log(input);
-      await handleCommand(input);
+      await handlerLogic(input);
     } else {
       textInvalidImpit(userName);
     }
