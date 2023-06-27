@@ -42,3 +42,16 @@ export const updateCurrentDir = async (path) => {
 
   return currentDir;
 }
+
+export const createPathToFile = async (path) => {
+  if (typeof path === 'string'){
+    path.trim();
+
+    if (path.startsWith('.')) {
+      return join(await updateCurrentDir(), path.replace(/^["'](.+(?=["']$))["']$/, '$1'));
+    } else {
+      return path.replace(/^["'](.+(?=["']$))["']$/, '$1');
+    }
+  }
+  return;
+}

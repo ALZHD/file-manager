@@ -1,6 +1,7 @@
 import { updateCurrentDir } from "./currentdir.js";
 import { Ls, Up, Cd } from  './logic/nav.js'
-// import { cmdAdd, cmdCat } from "../commands/basic.js";
+import { Cat, Add,Cp,Mv,Rm } from "./logic/otherfn.js";
+
 
 const handlerLogic = async (command) => {
   try {
@@ -25,6 +26,18 @@ const handlerLogic = async (command) => {
         break;
       case 'add':
         await Add(commandArgs[0]);
+        break;
+        case 'rn':
+        await Rn(commandArgs[0], commandArgs[1]);
+        break;
+        case 'cp':
+        await Cp(commandArgs[0], commandArgs[1]);
+        break;
+        case 'mv':
+        await Mv(commandArgs[0], commandArgs[1]);
+        break;
+      case 'rm':
+        await Rm(commandArgs[0]);
         break;
       default:
       console.log('!Invalid input.\n');
